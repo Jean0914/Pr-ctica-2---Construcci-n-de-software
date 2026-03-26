@@ -1,8 +1,8 @@
-# 🚀 Nadir Blog - Node.js + SQLite
+# Nadir Blog - Node.js + SQLite
 
 Un sistema de blog minimalista y profesional diseñado con un enfoque en estética premium y facilidad de uso.
 
-## ✨ Características
+## Características
 
 - **Autenticación Segura**: Panel de administración protegido para gestionar contenido.
 - **Gestión de Posts**: CRUD completo (Crear, Leer, Editar, Borrar) para el administrador.
@@ -16,7 +16,7 @@ Un sistema de blog minimalista y profesional diseñado con un enfoque en estéti
 - **Frontend**: EJS, Vanilla CSS (CSS3)
 - **Seguridad**: Bcrypt (Hash de contraseñas), Express-Session
 
-## 🚀 Instalación y Uso
+## Instalación y Uso
 
 1. **Clonar el repositorio**:
    ```bash
@@ -38,10 +38,3 @@ Un sistema de blog minimalista y profesional diseñado con un enfoque en estéti
    - **Visitante**: `http://localhost:3000`
    - **Admin**: `http://localhost:3000/login`
    - **Credenciales por defecto**: `admin` / `admin123`
-
-## 📸 Capturas de Pantalla
-
-*(Aquí puedes añadir imágenes de tu blog una vez lo subas)*
-
----
-Desarrollado con ❤️ para el proyecto Chrono Nadir.
