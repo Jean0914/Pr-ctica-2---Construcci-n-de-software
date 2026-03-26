@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Nadir</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <a href="/" class="brand">Nadir Blog</a>
+    <nav>
+      <a href="/">Inicio</a>
+      <% if (user) { %>
+        <a href="/admin">Dashboard</a>
+        <form action="/logout" method="POST" style="display:inline;">
+          <button type="submit">Cerrar sesión</button>
+        </form>
+      <% } else { %>
+        <a href="/login" class="btn btn-primary" style="margin-left: 1.5rem;">Iniciar sesión</a>
+      <% } %>
+    </nav>
+  </header>
+  <main>

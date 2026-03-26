@@ -1,0 +1,61 @@
+<%- include('../partials/header') %>
+
+<div class="admin-header">
+  <h2>Panel de Administración</h2>
+  <a href="/admin/posts/nuevo" class="btn btn-primary">
+    + Nuevo Post
+  </a>
+</div>
+
+<% if (success) { %>
+  <div class="alert alert-success">
+    <%= success %>
+  </div>
+<% } %>
+
+<div class="table-container">
+  <% if (posts.length === 0) { %>
+    <p class="text-center" style="padding: 2rem; color: var(--text-muted);">No tienes publicaciones aún.</p>
+  <% } else { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Fecha</th>
+          <th style="width: 150px; text-align: center;">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% posts.forEach(post => { %>
+          <tr>
+            <td style="font-weight: 600;"><%= post.titulo %></td>
+            <td><%= new Date(post.fecha_creacion).toLocaleDateString('es-ES') %></td>
+            <td>
+              <div class="actions">
+                <a href="/admin/posts/<%= post.id %>/editar" class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Editar</a>
+                <button type="button" class="btn btn-danger" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;" onclick="showModal('<%= post.id %>')">Borrar</button>
+              </div>
+
+              <!-- Delete Modal -->
+              <div id="modal-<%= post.id %>" class="modal-overlay">
+                <div class="modal">
+                  <h3>Eliminar Post</h3>
+                  <p>¿Estás seguro de que deseas eliminar permanentemente <strong>"<%= post.titulo %>"</strong>?</p>
+                  <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="hideModal('<%= post.id %>')">Cancelar</button>
+                    <form action="/admin/posts/<%= post.id %>/borrar" method="POST">
+                      <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+</div>
+
+<%- include('../partials/footer') %>
